@@ -1,23 +1,43 @@
-# Definición de la función buscar_valor
-def buscar_valor(matriz, valor):
-    for i in range(len(matriz)):
-        for j in range(len(matriz[i])):
-            if matriz[i][j] == valor:
-                return f"El valor {valor} se encontró en la posición ({i}, {j})"
-    return "El valor no se encontró en la matriz"
-
-# Definir la matriz
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+# Matriz de temperaturas para Guayaquil, Quito, Cuenca, Ambato
+temperaturas = [
+    [   # Guayaquil
+        [   # Semana 1
+            {"day": "Lunes", "temp": 30},
+            {"day": "Martes", "temp": 32},
+            {"day": "Miércoles", "temp": 31},
+            {"day": "Jueves", "temp": 29},
+            {"day": "Viernes", "temp": 33},
+            {"day": "Sábado", "temp": 34},
+            {"day": "Domingo", "temp": 35}
+        ],
+        [   # Semana 2
+            {"day": "Lunes", "temp": 31},
+            {"day": "Martes", "temp": 33},
+            {"day": "Miércoles", "temp": 32},
+            {"day": "Jueves", "temp": 30},
+            {"day": "Viernes", "temp": 34},
+            {"day": "Sábado", "temp": 35},
+            {"day": "Domingo", "temp": 36}
+        ],
+        # Resto de las semanas para Guayaquil...
+    ],
+    [   # Quito
+        # Datos de temperaturas por semana para Quito...
+    ],
+    [   # Cuenca
+        # Datos de temperaturas por semana para Cuenca...
+    ],
+    [   # Ambato
+        # Datos de temperaturas por semana para Ambato...
+    ]
 ]
 
-# Valor a buscar
-valor_buscar = 5
-
-# Llamar a la función buscar_valor
-resultado_busqueda = buscar_valor(matrix, valor_buscar)
-
-# Mostrar el resultado de la búsqueda
-print(resultado_busqueda)
+# Calcular el promedio de temperaturas por ciudad y semana
+for ciudad in range(len(temperaturas)):
+    for semana in range(len(temperaturas[ciudad])):
+        total_temp = 0
+        for dia in temperaturas[ciudad][semana]:
+            total_temp += dia["temp"]
+        promedio_temp = total_temp / len(temperaturas[ciudad][semana])
+        print(
+            f"Promedio de temperaturas para {['Guayaquil', 'Quito', 'Cuenca', 'Ambato'][ciudad]}, Semana {semana + 1}: {promedio_temp}")
